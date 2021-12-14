@@ -2,6 +2,7 @@ import { useState } from "react";
 import Form from "./Form/Form";
 import FormInput from './Form/FormInput';
 import Info from './../icons/Info';
+import Arrows from './../icons/Arrows';
 
 export default function Swap() {
     const [fromValue, setFromValue] = useState(345);
@@ -13,7 +14,9 @@ export default function Swap() {
             <>
                 <p className="form__text form__text--mb">Trade tokents in an instant</p>
                 <FormInput value={fromValue} setValue={setFromValue} />
-
+                <button className="button button--round form__round">
+                    <Arrows className="button__icon" />
+                </button>
                 <FormInput value={toValue} setValue={setToValue} />
                 <div className="form__row">
                     <p className="form__text">Price</p>

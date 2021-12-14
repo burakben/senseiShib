@@ -10,6 +10,8 @@
     color: #ffffff;
     font-size: 14px;
 
+    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+
     &__icon {
         margin-right: 6px;
         transition: color 0.3s ease-out;
@@ -67,5 +69,23 @@
     &--form {
         width: 100%;
         font-size: 18px;
+    }
+}
+
+.button {
+
+    &--round {
+        width: 48px;
+        height: 48px;
+
+        padding: 0;
+
+        background: #1B1A1A;
+        border-radius: 50%;
+        color: #ffffff;
+    }
+
+    &--round:hover {
+        background: #242323;  
     }
 }
