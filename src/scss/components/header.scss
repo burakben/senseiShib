@@ -1,0 +1,55 @@
+/*-------- Header --------*/
+
+.header {
+    display: flex;
+    flex-direction: column;
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        width: 100%;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    &__logo-image {
+        display: block;
+    }
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: radial-gradient(61.39% 50% at 50% 50%, #7D7C7C 0%, rgba(163, 123, 123, 0) 100%);
+    }
+
+    &__menu {
+        display: flex;
+        margin-right: auto;
+        margin-left: 40px;
+    }
+
+    &__menu-item:not(:first-child) {
+        margin-left: 40px;
+    }
+
+    &__menu-link {
+        font-family: $font-m;
+        font-size: 18px;
+        color: #ffffff;
+    }
+
+    &__menu-link.active {
+        color: $red;
+    }
+
+    &__menu-link:not(.active):hover {
+        text-decoration: underline;
+    }
+
+    &__input {
+        max-width: 70px;
+    }
+}

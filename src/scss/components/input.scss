@@ -1,0 +1,69 @@
+/*-------- Input --------*/
+
+.input-wrapper {
+
+    &__row {
+        display: flex;
+        align-items: center;
+    }
+}
+
+.input-wrapper {
+  
+    &--form {
+        display: flex;
+        align-items: flex-end;
+        padding: 20px 24px;
+        background: #1B1A1A;
+        border: 1px solid #484545;
+        border-radius: 8px;
+    }
+
+    &--form &__text {
+        font-weight: 400;
+    }
+
+    &--form &__column:nth-child(1) {
+        width: 148px;
+    }
+
+    &--form &__column:nth-child(2) {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        width: calc(100% - 148px);
+    }
+
+    &--form &__input {
+        padding: 0;
+        margin-left: 12px;
+
+        background: transparent;
+        border: none;
+        border-radius: 0;
+
+        font-family: $font-stx;
+        font-size: 48px;
+    }
+
+    &--form &__input:hover, &--form &__input:focus {
+        background-color: #202226;
+    }
+
+    &--form &__row {
+        margin-top: 14px;
+    }
+}
+
+.input {
+    padding: 6px 11px;
+
+    background: #202226;
+    border: 1px solid #484545;
+    border-radius: 8px;
+
+    font-family: $font-sb;
+    font-size: 18px;
+    color: #ffffff;
+}

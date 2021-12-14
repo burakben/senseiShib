@@ -1,10 +1,22 @@
-
+import Header from './components/Header/Header';
+import { Switch, Route } from 'react-router-dom';
+import Swap from './components/Swap';
+import Liquidity from './components/Liquidity';
 
 function App() {
-    return (
-        <div className="App">
 
-        </div>
+    return (
+        <>
+            <Header />
+            <Switch>
+                <Route path="/swap" exact>
+                    <Swap />
+                </Route>
+                <Route path="/liquidity" exact>
+                    <Liquidity />
+                </Route>
+            </Switch>
+        </>
     );
 }
 

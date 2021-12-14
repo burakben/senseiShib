@@ -1,0 +1,54 @@
+/*-------- Basic --------*/
+
+body {
+    background: url(../../img/common/background.png), $black1;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    font-family: $font-r;
+    font-size: 14px;
+    color: $grey;
+    line-height: 1;
+    font-weight: 400;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 400;
+}
+
+input, select {
+    appearance: none;
+}
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0;
+
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    background: none;
+}
+
+.container {
+    max-width: 1168px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding-left: 20px;
+    padding-right: 20px;
+}
