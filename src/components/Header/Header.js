@@ -10,7 +10,7 @@ const menu = [
     { title: "Liquidity", to: "/liquidity", id: 1 }
 ];
 
-export default function Header({ setPopupShow }) {
+export default function Header({ popupShow, setPopupShow }) {
     const [accounts] = useState([""]);
     const location = useLocation();
     const [mobileScreen, setMobileScreen] = useState(false);
@@ -57,7 +57,7 @@ export default function Header({ setPopupShow }) {
                             <Docs className="button__icon" />
                             <span>{accounts[0]}</span>
                         </button> :
-                        <button className='button button--header button--red' onClick={() => setPopupShow(state => !state)}>Connect Wallet</button>
+                        <button className={'button button--header button--red' + (popupShow ? " active" : "")} onClick={() => setPopupShow(state => !state)}>Connect Wallet</button>
                     }
                     <button className='button button--more'>
                         <More className="button__icon" />

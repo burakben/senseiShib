@@ -10,7 +10,7 @@ function App() {
 
     return (
         <>
-            <Header setPopupShow={setPopupShow} />
+            <Header popupShow={popupShow} setPopupShow={setPopupShow} />
             <main className="main">
                 <Switch>
                     <Redirect path="/" to="/swap" exact />

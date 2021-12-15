@@ -10,7 +10,7 @@
     color: #ffffff;
     font-size: 14px;
 
-    transition: background-color 0.3s ease-out, color 0.3s ease-out;
+    transition: all 0.3s ease-out;
 
     &__icon {
         margin-right: 6px;
@@ -48,6 +48,12 @@
         width: 224px;
         margin-left: 24px;
         margin-right: 24px;
+    }
+
+    &--header:hover, &--header.active {
+        background-color: transparent;
+        border: 1px solid $red;
+        color: $red;
     }
 }
 

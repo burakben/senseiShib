@@ -1,7 +1,7 @@
 /*-------- Basic --------*/
 
 body {
-    background: url(../../img/common/background.png), $black1;
+    background: url(../../img/common/background.png), radial-gradient(50% 50% at 50% 50%, #363434 0%, #161616 100%), $black1;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
