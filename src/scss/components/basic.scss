@@ -162,7 +162,7 @@ button {
 @media (max-width: 767px) {
 
     body {
-        background-image: none;
+        background: radial-gradient(50% 50% at 50% 50%, #363434 0%, #161616 100%), #FFFFFF;
     }
 
     .container {
