@@ -13,11 +13,11 @@ export default function Swap() {
         <Form className="form--swap" title="Swap">
             <>
                 <p className="form__text form__text--mb">Trade tokents in an instant</p>
-                <FormInput value={fromValue} setValue={setFromValue} />
+                <FormInput value={fromValue} setValue={setFromValue} title="From" />
                 <button className="button button--round form__round">
                     <Arrows className="button__icon" />
                 </button>
-                <FormInput value={toValue} setValue={setToValue} />
+                <FormInput value={toValue} setValue={setToValue} title="To (estimated)" />
                 <div className="form__row">
                     <p className="form__text">Price</p>
                     <span className="form__text form__text--main">99.9849 BNB per ETH</span>

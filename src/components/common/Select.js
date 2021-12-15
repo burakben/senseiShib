@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Enlarge from '../icons/Enlarge';
+import Enlarge from '../../icons/Enlarge';
 
 export default function Select({ className, list, callback }) {
     const [selectList, setSelectList] = useState(list);
