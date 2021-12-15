@@ -190,6 +190,16 @@
     }
 }
 
+@media (hover: none) and (pointer: coarse) {
+
+    .form {
+
+        &__wrapper {
+            padding-right: 24px;
+        }
+    }
+}
+
 @media (max-width: 767px) {
 
     .form {
@@ -271,6 +281,16 @@
 
         &--liquidity &__top {
             margin-bottom: 10px;
+        }
+    }
+}
+
+@media (hover: none) and (pointer: coarse) and (max-width: 619px) {
+
+    .form {
+
+        &__wrapper {
+            padding-right: 16px;
         }
     }
 }

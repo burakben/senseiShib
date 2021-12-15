@@ -147,6 +147,18 @@ button {
     }
 }
 
+@media (hover: none) and (pointer: coarse) {
+
+    .scrollwrapper {
+        padding-right: 0 !important;
+    
+        &::-webkit-scrollbar {
+            width: 0px;
+        }
+    }
+}
+
+
 @media (max-width: 767px) {
 
     body {
