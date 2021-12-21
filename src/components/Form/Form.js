@@ -13,7 +13,7 @@ export default function Form({ className, title, children }) {
 
     return (
         <div className={"form container " + (className || "")}>
-            <div className="form__wrapper">
+            <div className="form__wrapper form__container">
                 <div className="form__top">
                     <h1 className="form__title">{title}</h1>
                     <div className="form__top-button-wrapper">

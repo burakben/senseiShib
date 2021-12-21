@@ -4,6 +4,7 @@ import Swap from './components/Swap';
 import Liquidity from './components/Liquidity';
 import { useState } from 'react';
 import ConnectPopup from './components/ConnectPopup';
+import Allocation from './components/Allocation/Allocation';
 
 function App() {
     const [popupShow, setPopupShow] = useState(false);
@@ -19,6 +20,9 @@ function App() {
                     </Route>
                     <Route path="/liquidity" exact>
                         <Liquidity />
+                    </Route>
+                    <Route path="/allocation" exact>
+                        <Allocation />
                     </Route>
                 </Switch>
             </main>
