@@ -115,6 +115,21 @@
     }
 }
 
+@media (max-width: 989px) {
+
+    .button {
+
+        &--header {
+            width: 170px;
+            height: 45px;
+
+            padding: 0px 20px;
+            margin-left: 10px;
+            margin-right: 20px;
+        }
+    }
+}
+
 @media (max-width: 767px) {
 
     .button {
@@ -134,7 +149,7 @@
         &--header {
             max-width: 155px;
             height: 36px;
-            margin: 0 10px;
+            margin-left: 0;
             padding: 0 20px;
             font-size: 12px;
             border-radius: 6px;

@@ -162,6 +162,26 @@
     }
 }
 
+@media (max-width: 989px) {
+
+    .header {
+
+        &__menu {
+            display: flex;
+            margin-right: auto;
+            margin-left: 20px;
+        }
+
+        &__menu-item:not(:first-child) {
+            margin-left: 20px;
+        }
+
+        &__menu-link {
+            font-size: 16px;
+        }
+    }
+}
+
 @media (max-width: 767px) {
 
     .header {
