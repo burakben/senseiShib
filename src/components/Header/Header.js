@@ -1,16 +1,16 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../img/common/logo.png";
 import More from "./../../icons/More";
-import Popup from "reactjs-popup";
 import { useLocation } from "react-router-dom";
+import addToRefs from './../../services/addToRefs';
 
 const menu = [
     {
         title: "Trade",
         id: 0,
         submenu: [
-            { title: "Exchange", to: "/swap", id: 0, disabled: false },
+            { title: "Exchange", to: "/exchange", id: 0, disabled: false },
             { title: "Liquidity", to: "/liquidity", id: 1, disabled: false },
         ],
     },
@@ -31,20 +31,35 @@ const menu = [
     },
     {
         title: "Staking",
+        to: "/staking",
         id: 3,
-        submenu: [{ title: "Coming Soon...", to: "#", id: 0, disabled: false }],
     },
 ];
 
 export default function Header({ popupShow, setPopupShow, userAddress, setUserAddress, disconnectWallet, mobileScreen }) {
     const location = useLocation();
     const [menuVisible, setMenuVisible] = useState(false);
-    const [subMenuVisible, setSubMenuVisible] = useState();
+    const [subMenuListHeights, setSubMenuListHeights] = useState([]);
+    const subMenuLists = useRef([]);
 
     function checkUrl(url) {
         let current_path = location.pathname;
         return url === current_path;
     }
+
+    function toggleContent(index) {
+        let elementHeight = subMenuLists.current[index].clientHeight;
+
+        if (subMenuListHeights[index] !== 0) {
+            setSubMenuListHeights(state => state.map((item, itemIndex) => itemIndex === index ? 0 : item));
+        } else {
+            setSubMenuListHeights(state => state.map((item, itemIndex) => itemIndex === index ? elementHeight : item));
+        }
+    }
+
+    useEffect(() => {
+        setSubMenuListHeights(subMenuLists.current.map(() => 0));
+    }, [menuVisible]);
 
     return (
         <header className="header">
@@ -56,67 +71,36 @@ export default function Header({ popupShow, setPopupShow, userAddress, setUserAd
                     {menu.map((item, index) => {
                         return (
                             <li className="header__menu-item" key={index}>
-                                {mobileScreen ? (
-                                    <div onClick={() => setSubMenuVisible(index)}>
-                                        <h1>{item.title}</h1>
-                                        <div className={subMenuVisible === index ? "submenu active" : "submenu"}>
-                                            {item.submenu.map((el, i) => {
-                                                return (
-                                                    <Link
-                                                        key={i}
-                                                        to={el.to}
-                                                        className={"header__menu-link" + (checkUrl(el.to) ? " active" : "")}
-                                                        onClick={mobileScreen ? () => setMenuVisible(!menuVisible) : () => false}
-                                                    >
-                                                        {el.title}
-                                                    </Link>
-                                                );
-                                            })}
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <Popup
-                                        key={`tp-${item.id}`}
-                                        trigger={
-                                            <button type="button" className="header__menu-link">
-                                                {item.title}
-                                            </button>
+                                {item.to ?
+                                    <Link
+                                        key={item.id}
+                                        to={item.to}
+                                        className={"header__menu-link" + (checkUrl(item.to) ? " active" : "")}
+                                        onClick={mobileScreen ? () => setMenuVisible(!menuVisible) : () => false}>{item.title}</Link>
+                                    :
+                                    <>
+                                        <button className="header__menu-link" onClick={mobileScreen ? () => toggleContent(index) : () => false}>{item.title}</button>
+                                        {item.submenu &&
+                                            <div className="header__submenu" style={{ height: mobileScreen ? subMenuListHeights[index] : "auto" }}>
+                                                <ul className="header__submenu-list" ref={el => addToRefs(el, subMenuLists)}>
+                                                    {item.submenu.map(subItem => {
+                                                        return (
+                                                            <li className="header__submenu-item" key={subItem.id}>
+                                                                <Link
+                                                                    to={subItem.to}
+                                                                    className={"header__submenu-link" + (checkUrl(subItem.to) ? " active" : "")}
+                                                                    onClick={mobileScreen ? () => setMenuVisible(!menuVisible) : () => false}
+                                                                >
+                                                                    {subItem.title}
+                                                                </Link>
+                                                            </li>
+                                                        );
+                                                    })}
+                                                </ul>
+                                            </div>
                                         }
-                                        position={"bottom center"}
-                                        on={["hover", "focus"]}
-                                        arrow={false}
-                                    >
-                                        <div className="popup-body">
-                                            {item.submenu.map((el, i) => {
-                                                return (
-                                                    <Link
-                                                        key={i}
-                                                        to={el.to}
-                                                        className={"header__menu-link" + (checkUrl(el.to) ? " active" : "")}
-                                                        onClick={mobileScreen ? () => setMenuVisible(!menuVisible) : () => false}
-                                                    >
-                                                        {el.title}
-                                                    </Link>
-                                                );
-                                            })}
-                                        </div>
-                                    </Popup>
-                                )}
-                                {/* <button disabled={item.disabled}>
-                  <Link
-                    to={item.to}
-                    className={
-                      "header__menu-link" + (checkUrl(item.to) ? " active" : "")
-                    }
-                    onClick={
-                      mobileScreen
-                        ? () => setMenuVisible(!menuVisible)
-                        : () => false
-                    }
-                  >
-                    {item.title}
-                  </Link>
-                </button> */}
+                                    </>
+                                }
                             </li>
                         );
                     })}

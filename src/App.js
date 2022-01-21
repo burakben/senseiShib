@@ -123,7 +123,7 @@ function App() {
       <main className="main scrollwrapper">
         <Switch>
           <Redirect path="/" to="/swap" exact />
-          <Route path="/swap" exact>
+          <Route path="/exchange" exact>
             <Swap walletType={walletType} userAddress={userAddress} setPopupShow={setPopupShow} />
           </Route>
           <Route path="/liquidity" exact>
