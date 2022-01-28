@@ -228,6 +228,18 @@
     &__title--center {
         text-align: center;
     }
+
+    &__faq {
+        margin-top: 20px;
+        padding: 40px 22px 48px 22px;
+    }
+
+    &__faq-title {
+        font-family: $font-stx;
+        font-size: 36px;
+        color: #ffffff;
+        text-align: center;
+    }
 }
 
 @media (max-width: 989px) {
