@@ -411,6 +411,14 @@
             height: 48px;
             font-size: 16px;
         }
+
+        &__faq {
+            padding: 30px 15px 25px 15px;
+        }
+
+        &__faq-title {
+            font-size: 28px;
+        }
     }
 }
 
@@ -511,6 +519,10 @@
 
         &__item {
             margin-top: 16px;
+        }
+
+        &__faq-title {
+            font-size: 24px;
         }
     }
 }
