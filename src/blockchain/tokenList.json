@@ -12,11 +12,11 @@
   "keywords": ["pancake", "default"],
   "tokens": [
     {
-      "name": "Sensei Shib",
+      "name": "Rich Elon",
       "selected": true,
       "symbol": "SENSEI",
-      "address": "0xC58B6593B37D825779330Cd58B1f250e9eD7E10A",
-      "decimals": 9,
+      "address": "0xfE6D035E592613e24149def287bAb7F3E713F69F",
+      "decimals": 15,
       "logoURI": "/images/logo.png"
     },
     {
